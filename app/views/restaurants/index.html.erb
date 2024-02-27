@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
+<div class="container bg-info bg-opacity-25 justify-content-center rounded">
+  <h1 class="text-center">Restaurants</h1><hr/>
 
-<h1>Restaurants</h1>
+  <div id="restaurants" class="text-center py-2 ">
+    <% @restaurants.each do |restaurant| %>
+      <%= render restaurant %>
+      <p>
+        <div class="d-grid col-4 mx-auto btn btn-warning"><%= link_to "Show this restaurant", restaurant %> </div>
+      </p><hr/>
+    <% end %>
+  </div>
+  <div class="d-grid col-4 mx-auto btn  btn-outline-warning">
+    <%= link_to "New restaurant", new_restaurant_path %>
+  </div>
 
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
 </div>
-
-<%= link_to "New restaurant", new_restaurant_path %>
